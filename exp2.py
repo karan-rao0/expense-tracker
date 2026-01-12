@@ -5,6 +5,13 @@ expenses = {
 }
 def add_expense(expenses, category, amount):
     expenses[category] += amount
+def get_right_value():
+     while True:
+                 try:
+                    return float(input("please enter amount").strip())
+                    break
+                 except ValueError:
+                    print("invalid input please enter a float or an integer.")
 
 budget = float(input("what is your budget?"))
 
@@ -27,33 +34,17 @@ while True:
 
          if exp_type in ("1", "food"):
              category = "food"
-             while True:
-                 try:
-                    amount = float(input("please enter amount").strip())
-                    break
-                 except ValueError:
-                    print("invalid input please enter a float or an integer.")
-                    
+             amount = get_right_value()       
              add_expense(expenses, "food", amount)
              print("updated expenses:", expenses)
          elif exp_type in ("2", "travel"):
              category = "travel"
-             while True:
-                 try:
-                     amount = float(input("please enter amount").strip())
-                     break
-                 except ValueError:
-                        print("invalid input please enter a float or an integer.")
+             amount = get_right_value()
              add_expense(expenses, "travel", amount)
              print("updated expenses:", expenses)
          elif exp_type in ("3", "education"):
              category = "education"
-             while True:
-                 try:
-                    amount = float(input("please enter amount").strip())
-                    break
-                 except ValueError:
-                    print("invalid input please enter a float or an integer.")
+             amount = get_right_value()
              add_expense(expenses, "education", amount)
              print("updated expenses:", expenses)
 
